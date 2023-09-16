@@ -142,7 +142,7 @@ if __name__ == "__main__":
 	Hex.transformInsert(tilePisces, "10mm", piscesCorner, [150, 250], 50, [0, 180])
 	Hex.transformInsert(tilePisces, "10mm", Hex.flipY(piscesCorner), [150, 250], 50, [-60, 120])
 	
-	#Hex.saveXML(tileDIC, "Tiles/DIC.svg")
-	#Hex.saveXML(tileDC, "Tiles/DC.svg")
-	#Hex.saveXML(tileXC, "Tiles/XC.svg")
+	Hex.saveXML(tileDIC, "Tiles/DIC.svg")
+	Hex.saveXML(tileDC, "Tiles/DC.svg")
+	Hex.saveXML(tileXC, "Tiles/XC.svg")
 	Hex.saveXML(tilePisces, "Tiles/Pisces.svg")
