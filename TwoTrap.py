@@ -55,4 +55,4 @@ if __name__ == "__main__":
 	Hex.transformInsert(tile2Trap, "10mm", smallCorner, [150, 250], 50, 0)
 	Hex.transformInsert(tile2Trap, "10mm", largeCorner, [150, 250], 50, 0)
 
-	Hex.saveXML(tile2Trap, "2Trap.svg")
+	Hex.saveXML(tile2Trap, "Tiles/2Trap.svg")

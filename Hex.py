@@ -158,7 +158,8 @@ def arcPath(x1, y1, x2, y2, x3, y3):
 
 def addAsPathToLayer(path, xml, layer, z = True):
 	global PathCounter, accumulatedLength
-	name = "genPath_" + str(PathCounter) + "_" + PathStr
+	name = "genPath_" + str(PathCounter)
+	# + "_" + PathStr
 	PathCounter += 1
 	newPath = xml["xml"].createElement("path")
 	newPath.setAttribute("style", style())

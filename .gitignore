@@ -1,4 +1,4 @@
 *.dxf
 *.swp
-*__pychache__*
+*__pycache__*
 Cut/*
