@@ -3,7 +3,7 @@ import math
 
 
 plate = Hex.basePlate()
-iPlate = Hex.indexedPlate(1)
+iPlate = Hex.indexedPlate(2)
 
 
 a = Hex.relativeToCenter(plate[5], plate[0], -0.5 * Hex.TrackWidth, 0)

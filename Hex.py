@@ -42,6 +42,20 @@ def findLayer(xml, layerName):
 	print("Layer " + layerName + " not found!")
 	return None
 
+def changeWidth(xml, newWidth):
+	for l in xml["xml"].getElementsByTagName("g"):
+		if l.attributes.get("inkscape:label").value == "Desc":
+			for txt in l.getElementsByTagName("text"):
+				ts = txt.getElementsByTagName("tspan")[0].childNodes[0]
+				if ts.nodeValue == "10mm":
+					ts.nodeValue = newWidth
+			pass
+		if l.attributes.get("inkscape:label").value == "10mm":
+			l.attributes.get("inkscape:label").value = newWidth
+	xml[newWidth] = xml["10mm"]
+	xml["10mm"] = None
+		
+
 def saveXML(obj, fileName):
 	with open(fileName, "w") as f:
 		obj["xml"].writexml(f)
@@ -93,6 +107,11 @@ def indexedPlate(indents = 1):
 
 def transform(path, dx, dy, angle):
 	res = []
+	if (type(path[0]) == str):
+		res.append(path[0])
+		for i in range(1, len(path)):
+			res.append(transform(path[i], dx, dy, angle))
+		return res
 	for i in range(len(path)):
 		x = 0
 		y = 0
@@ -110,6 +129,23 @@ def transform(path, dx, dy, angle):
 			res.append([xt, yt])
 		else:
 			res.append([path[i][0], xt, yt])
+	return res
+
+def scale(path, s):
+	res = []
+	if (type(path[0]) == str):
+		res.append(path[0])
+		for i in range(1, len(path)):
+			res.append(scale(path[i], s))
+		return res
+	for i in range(len(path)):
+		p = []
+		for j in range(len(path[i])):
+			if type(path[i][j]) != str:
+				p.append(path[i][j] * s)
+			else:
+				p.append(path[i][j])
+		res.append(p)
 	return res
 
 def piRange(a):
@@ -185,20 +221,35 @@ def addAsPathToLayer(path, xml, layer, z = True):
 	xml[layer].appendChild(newPath)
 	return
 
-def transformInsert(xml, layer, path, dx, dy, angle=0):
+def transformInsert(xml, layer, path, dx, dy, angle=0, z = True):
+	if (path[0] == "group"):
+		for _path in path:
+			if type(_path) != str:
+				transformInsert(xml, layer, _path, dx, dy, angle, z)
+		return
+	if (path[0] == "group-z"):
+		for _path in path:
+			if type(_path) != str:
+				transformInsert(xml, layer, _path, dx, dy, angle, z = False)
+		return
+	if (path[0] == "group+z"):
+		for _path in path:
+			if type(_path) != str:
+				transformInsert(xml, layer, _path, dx, dy, angle, z = True)
+		return
 	if type(dx) == list:
 		for _dx in dx:
-			transformInsert(xml, layer, path, _dx, dy, angle)
+			transformInsert(xml, layer, path, _dx, dy, angle, z)
 		return
 	if type(dy) == list:
 		for _dy in dy:
-			transformInsert(xml, layer, path, dx, _dy, angle)
+			transformInsert(xml, layer, path, dx, _dy, angle, z)
 		return
 	if type(angle) == list:
 		for _angle in angle:
-			transformInsert(xml, layer, path, dx, dy, _angle)
+			transformInsert(xml, layer, path, dx, dy, _angle, z)
 		return
-	addAsPathToLayer(transform(path, dx, dy, angle), xml, layer)
+	addAsPathToLayer(transform(path, dx, dy, angle), xml, layer, z=z)
 
 def circleIntersect(a, r1, b, r2):
 	d = dist(a, b)
