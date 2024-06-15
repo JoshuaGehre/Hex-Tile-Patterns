@@ -189,7 +189,7 @@ if __name__ == "__main__":
 	Hex.transformInsert(tileXC, "6mm", DIC.xcLargeCorner, [150, 250], 50, -120)
 	Hex.transformInsert(tileXC, "6mm", DIC.xcLargeCorner2, [150, 250], 50, 120)
 
-	#Hex.saveXML(tileX, "Tiles/SecretX.svg")
+	Hex.saveXML(tileX, "Tiles/SecretX.svg")
 	Hex.saveXML(tileTrigger, "Tiles/SecretTrigger.svg")
-	#Hex.saveXML(tileDIC, "Tiles/SecretDIC.svg")
-	#Hex.saveXML(tileXC, "Tiles/SecretXC.svg")
+	Hex.saveXML(tileDIC, "Tiles/SecretDIC.svg")
+	Hex.saveXML(tileXC, "Tiles/SecretXC.svg")

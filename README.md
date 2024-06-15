@@ -46,4 +46,14 @@ Current list of tiles that are included in this repository.
 | Flipper6 | Flipper.py | |
 | Pachinko | Flipper.py | |
 | Newton | Newton.py | |
-| QuadTrap | QuadTrap.py | Haven't made this yet, no clue if this works |
+| QuadTrap | QuadTrap.py | |
+| Xefros | Misc.py | Weird Tracks, kinda chaotic and unreliable |
+| RHSBT | Specials.py | |
+| Bomb | Specials.py | |
+| Recursion | Specials.py | Trigger: Teleport balls in and out of the small board |
+| Secret X | Secret.py | Secret tiles are a huge pain to assemble |
+| Secret DIC | Secret.py | |
+| Secret XC | Secret.py | |
+| Secret Trigger | Secret.py | Keep track of when an opponent sets this off, tell them they have activated your trap tile + reveal the tile, then swap whatever tiles tiles with tiles on their hand as you'd like. This system probably needs a lot more pedantic rules and would likely qualify as a forbidden effect within the Hextraction rules. I still wanted to have something like this in my tiles though. |
+| TileForTwo | TileForTwo.py | File in some gaps to fit a string through. |
+| DCXL | TileForTwo.py | Alternate Name: 640 |
