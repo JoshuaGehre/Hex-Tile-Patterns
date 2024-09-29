@@ -20,9 +20,9 @@ szTop = [d, plate[1], plate[2], e]
 
 sLowered = d[1] + Hex.TrackWidth
 
-print(sLowered)
+#print(sLowered)
 fraction = (sLowered - e[1]) / (b[1] - e[1])
-print([b[0] * fraction + e[0] * (1 - fraction), b[1] * fraction + e[1] * (1 - fraction)])
+#print([b[0] * fraction + e[0] * (1 - fraction), b[1] * fraction + e[1] * (1 - fraction)])
 
 sCorner = [plate[0], a,
 	[

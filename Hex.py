@@ -171,6 +171,7 @@ def arcPath(x1, y1, x2, y2, x3, y3):
 	#print((x1, y1, x2, y2, x3, y3))
 	xc = ((x1**2 + y1**2) * (y2 - y3) + (x2**2 + y2**2) * (y3 - y1) + (x3**2 + y3**2) * (y1 - y2)) / d
 	yc = ((x1**2 + y1**2) * (x3 - x2) + (x2**2 + y2**2) * (x1 - x3) + (x3**2 + y3**2) * (x2 - x1)) / d
+	#print((xc, yc))
 	r = math.sqrt((x3 - xc) ** 2 + (y3 - yc) ** 2)
 	a1 = math.atan2(y1 - yc, x1 - xc)
 	a2 = math.atan2(y2 - yc, x2 - xc)
@@ -184,7 +185,11 @@ def arcPath(x1, y1, x2, y2, x3, y3):
 			a3 += 2 * math.pi
 		else:
 			a3 -= 2 * math.pi
-	arcFlag = 1 if abs(a2) > abs(a3) else 0
+	#print([a2, a3])
+	arcFlag = 1 if abs(a3) > math.pi + 1e-7 else 0
+	#if(arcFlag == 1):
+	#	print("=================")
+	#arcFlag = 0
 	arcLength = r * (2 * math.pi - abs(a3) if abs(a2) > abs(a3) else abs(a3))
 	#print("Arc: " + str(arcLength))
 	accumulatedLength += arcLength
@@ -266,6 +271,12 @@ def flipY(path):
 			res.append([i[0], -i[1]])
 		elif len(i) == 3:
 			res.append([i[0], i[1], -i[2]])
+	return res
+
+def reverse(path):
+	res = []
+	for i in range(len(path)):
+		res.append(path[len(path) - 1 - i])
 	return res
 
 def makeCircle(r, x = 0, y = 0):

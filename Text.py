@@ -1,10 +1,6 @@
 import Hex
 import math
 
-# ?OPENMÖFICH
-
-# COÖ?
-
 CAng = 45
 CR1 = 0.3
 CR2 = 0.6
@@ -22,10 +18,12 @@ OPath = [
 	["arc"] + Hex.add(c1, Hex.polarPos(CR1, 90 + CAng * 0.5)),
 	Hex.add(c1, Hex.polarPos(CR1, 180 - CAng)),
 	["arc"] + Hex.add(c2, [-CR2, 0]),
-	Hex.add(c3, Hex.polarPos(CR1, -90 - CAng * 0.5)),
-	["arc"] + Hex.add(c3, Hex.polarPos(CR1, 180 + CAng)),
+	Hex.add(c3, Hex.polarPos(CR1, 180 + CAng)),
+	["arc"] + Hex.add(c3, Hex.polarPos(CR1, -90 - CAng * 0.5)),
 	Hex.add(c3, [0, CR1]),
 ]
+
+UPath = [[0, -0.5], [0, 0.25], ["arc", 0.25, 0.5], [0.5, 0.25], [0.5, -0.5]]
 
 qRad2 = 0.55
 
@@ -33,6 +31,12 @@ letters = {
 	" " : {
 		"width": 0.2,
 		"paths": ["group"]
+	},
+	"B" : {
+		"width": 0.4,
+		"paths": ["group",
+			[[0, 0], [0.15, 0], ["arc", 0.4, -0.25], [0.15, -0.5], [0, -0.5], [0, -0.35]],
+			[[0.15, 0], ["arc", 0.4, 0.25], [0.15, 0.5], [0, 0.5], [0, 0.35]]]
 	},
 	"C" : {
 		"width": 0.6,
@@ -81,6 +85,22 @@ letters = {
 	"P" : {
 		"width": 0.4,
 		"paths": [[0, 0.5], [0, 0], [0.15, 0], ["arc", 0.4, -0.25], [0.15, -0.5], [0, -0.5], [0, -0.35]]
+	},
+	"R" : {
+		"width": 0.4,
+		"paths": ["group", [[0, 0.5], [0, 0], [0.15, 0], ["arc", 0.4, -0.25], [0.15, -0.5], [0, -0.5], [0, -0.35]], [[0.15, 0], [0.4, 0.5]]]
+	},
+	"T" : {
+		"width" : 0.4,
+		"paths" : ["group", [[0, -0.5], [0.4, -0.5]], [[0.2, -0.5], [0.2, 0.5]]]
+	},
+	"U" : {
+		"width": 0.5,
+		"paths": ["group", UPath, Hex.transform(OPath, 1, 0, 180)]
+	},
+	"Ü" : {
+		"width": 0.5,
+		"paths": ["group", UPath, Hex.transform(OPath, 1, 0, 180), [[0.0, -0.65], [0.05, -0.8]], [[0.45, -0.65], [0.5, -0.8]]]
 	},
 	"?" : {
 		"width": 0.5,

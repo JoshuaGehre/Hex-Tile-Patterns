@@ -46,7 +46,7 @@ Current list of tiles that are included in this repository.
 | Flipper6 | Flipper.py | |
 | Pachinko | Flipper.py | |
 | Newton | Newton.py | |
-| QuadTrap | QuadTrap.py | |
+| QuadTrap | QuadTrap.py | Alternate Name: DC Trap |
 | Xefros | Misc.py | Weird Tracks, kinda chaotic and unreliable |
 | RHSBT | Specials.py | |
 | Bomb | Specials.py | |
@@ -54,6 +54,13 @@ Current list of tiles that are included in this repository.
 | Secret X | Secret.py | Secret tiles are a huge pain to assemble |
 | Secret DIC | Secret.py | |
 | Secret XC | Secret.py | |
-| Secret Trigger | Secret.py | Keep track of when an opponent sets this off, tell them they have activated your trap tile + reveal the tile, then swap whatever tiles tiles with tiles on their hand as you'd like. This system probably needs a lot more pedantic rules and would likely qualify as a forbidden effect within the Hextraction rules. I still wanted to have something like this in my tiles though. |
+| Secret Trigger | Secret.py | Keep track of when an opponent sets this off, tell them they have activated your secret trigger tile + reveal the tile, then swap whatever tiles tiles with tiles on their hand as you'd like. This system probably needs a lot more pedantic rules and would likely qualify as a forbidden effect within the Hextraction rules. I still wanted to have something like this in my tiles though. |
 | TileForTwo | TileForTwo.py | File in some gaps to fit a string through. |
 | DCXL | TileForTwo.py | Alternate Name: 640 |
+| Clone | Specials.py | Trigger: Roll another ball down the ramp |
+| King | Specials.py | Trigger: Move the tile (with the ball) to a neighbouring tile (if possible), while rotating it by 180 degree |
+| Teleport | Teleport.py | On Play: Split the tile apart and place both. Limit: The Out Tile must be placed higher than the In Tile. Trigger: Move the ball from the In Tile to the matching Out Tile |
+| Open Flipper | Flipper.py | |
+| Down Right Flipper | Flipper.py | |
+| Metastable | Flipper.py | Gets stuck for the top left to bottom right orientation, needs some rework |
+| Linear Trap | LinearTrap.py | |

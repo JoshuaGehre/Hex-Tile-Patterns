@@ -124,8 +124,8 @@ if __name__ == "__main__":
 
 
 	Hex.transformInsert(tileXC, "3mm", plate, [50, 250], 50)
-	Hex.transformInsert(tileXC, "3mm", i4bPlate, 50, 120)
-	Hex.transformInsert(tileXC, "3mm", i4bPlate, 250, 50)
+	Hex.transformInsert(tileXC, "3mm", i6Plate, 50, 120)
+	Hex.transformInsert(tileXC, "3mm", i6Plate, 250, 50)
 
 	Hex.transformInsert(tileXC, "10mm", roundCorner, [150, 250], 50, 0)
 	Hex.transformInsert(tileXC, "10mm", xcCenter, [150, 250], 50, 0)
