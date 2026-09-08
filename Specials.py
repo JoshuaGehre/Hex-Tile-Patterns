@@ -71,7 +71,7 @@ for i in range(len(arcPositions)):
 	r = 32
 	arcPositions[i] = [arcPositions[i], x - math.sqrt(r**2 - arcPositions[i]**2)]
 
-print(arcPositions)
+#print(arcPositions)
 
 arcs = []
 

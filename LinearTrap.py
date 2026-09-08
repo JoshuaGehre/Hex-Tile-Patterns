@@ -33,6 +33,10 @@ linePad = 0.5
 lineAnchorR = Hex.polarPos(lineOffset - (Hex.TrackWidth + linePad) * 0.5, lineAngle + 90)
 lineAnchorL = Hex.polarPos(lineOffset + (Hex.TrackWidth + linePad) * 0.5, lineAngle + 90)
 
+fixA = -118
+fixD = 3
+trapF = Hex.add(trap2, Hex.polarPos(fixD, fixA - 90))
+
 rightPart = [
 	d, plate[5], plate[0], plate[1], a,
 	["arc"] + Hex.add(center1, Hex.polarPos(r1, 190)),
@@ -45,15 +49,20 @@ rightPart = [
 	["arc"] + Hex.add(center3, Hex.polarPos(r2x, 5)),
 	Hex.add(d, [0, -hr]),
 	]
+
+
 leftPart = [
 	plate[2], plate[3], plate[4], c,
 	Hex.add(c, [0, -h]),
 	["arc"] + Hex.add(center2, Hex.polarPos(r2, 5)),
 	Hex.circleIntersect(center2, r2, trap2, trapR),
-	["arc"] + Hex.add(trap2, Hex.polarPos(trapR, 200)),
-	Hex.add(trap2, [-trapR, 0]),
-	["arc"] + Hex.add(trap2, Hex.polarPos(trapR, 175)),
-	Hex.circleLineIntersect(lineAnchorL, lineAngle, trap2, trapR),
+	["arc"] + Hex.add(trap2, Hex.polarPos(trapR, -115)),
+	Hex.add(trap2, Hex.polarPos(trapR, fixA)),
+	Hex.add(trapF, Hex.polarPos(trapR, fixA)),
+	#["arc"] + Hex.add(trapF, Hex.polarPos(trapR, -160)),
+	#Hex.add(trapF, [-trapR, 0]),
+	["arc"] + Hex.add(trapF, Hex.polarPos(trapR, 175)),
+	Hex.circleLineIntersect(lineAnchorL, lineAngle, trapF, trapR),
 	Hex.circleLineIntersect(lineAnchorL, lineAngle, center1, r1x, low=True),
 	["arc"] + Hex.add(center1, Hex.polarPos(r1x, 190)),
 	b
@@ -70,7 +79,7 @@ if __name__ == "__main__":
 		Hex.transformInsert(tile, "3mm", iPlate, 50, 120)
 		Hex.transformInsert(tile, "3mm", iPlate, 250, 50)
 	
-	Hex.transformInsert(tileLinearTrap, "10mm", rightPart, [150, 250], 50, 0)
-	Hex.transformInsert(tileLinearTrap, "10mm", leftPart, [150, 250], 50, 0)
+	Hex.transformInsert(tileLinearTrap, "10mm", rightPart, [150, 250], 50, 60)
+	Hex.transformInsert(tileLinearTrap, "10mm", leftPart, [150, 250], 50, 60)
 
 	Hex.saveXML(tileLinearTrap, "Tiles/LinearTrap.svg")

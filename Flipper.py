@@ -108,9 +108,9 @@ ofBottomRadius = 20
 ofCenter = [0, openCenterOffset]
 ofBottomPeak = [0, bottomHeight]
 ofBottomAngle = math.atan2(a3[1] - bottomHeight, a3[0])
-print(ofBottomAngle)
+#print(ofBottomAngle)
 x = math.tan(ofBottomAngle) * ofBottomRadius
-print(x)
+#print(x)
 
 
 bottomPiece = [plate[5], a3,
@@ -275,10 +275,11 @@ if __name__ == "__main__":
 	tilePachinko = Hex.loadTemplate()
 	tileFlipperOpen = Hex.loadTemplate()
 	tileFlipperDR = Hex.loadTemplate()
+	tileFlipperDL = Hex.loadTemplate()
 	tileMetastable = Hex.loadTemplate()
 
 
-	for tile in [tileFlipper3, tileFlipper6, tilePachinko, tileFlipperOpen, tileFlipperDR, tileMetastable]:
+	for tile in [tileFlipper3, tileFlipper6, tilePachinko, tileFlipperOpen, tileFlipperDR, tileMetastable, tileFlipperDL]:
 		Hex.transformInsert(tile, "3mm", plate, [50, 250], 50)
 		Hex.transformInsert(tile, "3mm", iPlate, 50, 120)
 		Hex.transformInsert(tile, "3mm", iPlate, 250, 50)
@@ -316,17 +317,28 @@ if __name__ == "__main__":
 	for i in [[0, 0], [distance2, 0], [-distance2, 0], [0, -distance2 * 1.15]]:
 		for j in [[50, 50], [50, 120], [250, 50]]:
 			Hex.transformInsert(tilePachinko, "3mm", pachinkoPin, i[0] + j[0], i[1] + j[1], 0)
-	
+
+	#DR
 	Hex.transformInsert(tileFlipperDR, "10mm", drHalf, [150, 250], 50, 0)
 	Hex.transformInsert(tileFlipperDR, "10mm", drRight, [150, 250], 50, 0)
 
-	Hex.transformInsert(tileFlipperDR, "10mm", smallFlipper, [150 + sfCenter[0], 250 + sfCenter[0]], 50 + sfCenter[1], 90)#[90 - sfFlipRight, 90, 90 + sfFlipLeft, 90 + sfFlipLeft * 0.5])
+	Hex.transformInsert(tileFlipperDR, "10mm", smallFlipper, [150 + sfCenter[0], 250 + sfCenter[0]], 50 + sfCenter[1], 90)
 	Hex.transformInsert(tileFlipperDR, "10mm", flipperCircle, [150 + sfCenter[0], 250 + sfCenter[0]], 50 + sfCenter[1], 0)
 	
 	Hex.transformInsert(tileFlipperDR, "10mm", smallCorner, [150, 250], 50, -60)
 	
 	Hex.transformInsert(tileFlipperDR, "3mm", flipperCircleBase, [50 + sfCenter[0], 250 + sfCenter[0]], 50 + sfCenter[1], 50, 0)
 
+	# DL
+	Hex.transformInsert(tileFlipperDL, "10mm", Hex.flipY(drHalf), [150, 250], 50, 180)
+	Hex.transformInsert(tileFlipperDL, "10mm", Hex.flipY(drRight), [150, 250], 50, 180)
+	Hex.transformInsert(tileFlipperDL, "10mm", smallCorner, [150, 250], 50, -120)
+
+	Hex.transformInsert(tileFlipperDL, "3mm", flipperCircleBase, [50 - sfCenter[0], 250 - sfCenter[0]], 50 + sfCenter[1], 50, 0)
+	Hex.transformInsert(tileFlipperDL, "10mm", smallFlipper, [150 - sfCenter[0], 250 - sfCenter[0]], 50 + sfCenter[1], 90)
+	Hex.transformInsert(tileFlipperDL, "10mm", flipperCircle, [150 - sfCenter[0], 250 - sfCenter[0]], 50 + sfCenter[1], 0)
+
+	# Metastable
 	Hex.transformInsert(tileMetastable, "10mm", metastableHalf, [150, 250], 50, 0)
 	Hex.transformInsert(tileMetastable, "10mm", Hex.flipY(metastableHalf), [150, 250], 50, 180)
 	msXInsert = [150 + metastableCenter[0], 250 + metastableCenter[0]]
@@ -341,4 +353,5 @@ if __name__ == "__main__":
 	Hex.saveXML(tilePachinko, "Tiles/Pachinko.svg")
 	Hex.saveXML(tileFlipperOpen, "Tiles/FlipperOpen.svg")
 	Hex.saveXML(tileFlipperDR, "Tiles/FlipperDR.svg")
+	Hex.saveXML(tileFlipperDL, "Tiles/FlipperDL.svg")
 	Hex.saveXML(tileMetastable, "Tiles/Metastable.svg")

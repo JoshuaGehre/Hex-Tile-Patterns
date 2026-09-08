@@ -10,7 +10,6 @@ import Asterisk
 import DIC
 import Newton
 import QuadTrap
-import Carcassonne
 import LinearTrap
 import Teleport
 
@@ -38,8 +37,6 @@ cut10mm = Hex.loadCutTemplate(True)
 #  Bomb, RHSBT
 
 Hex.resetLength()
-
-# TODO 10mm
 
 center = Hex.add(LargeBoard.boardSize, [3,3])
 Hex.transformInsert(cut10mm, "late", LargeBoard.outside, center[0], center[1])

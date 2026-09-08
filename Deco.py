@@ -38,3 +38,11 @@ def makeArcRipple(a, b, center, flip=False, outwards=False):
 	rippleDir = -1 if outwards else 1
 
 	return [Hex.add(center, Hex.polarPos(r - (rippleDir * rippleIndent * (i % 2)), phiA + 0.5 * phiD * i / n)) for i in range(n * 2)] + [b]
+	
+def makeCircle(radius):
+	return [[-radius, 0], ["arc", 0, radius], [radius, 0], ["arc", 0, -radius], [-radius, 0]]
+
+def makeAlignerCircle(radius):
+	aligner = [Hex.polarPos(radius, -20), ["arc", radius, 0], Hex.polarPos(radius, 20)]
+	aligner = ["group", aligner, Hex.transform(aligner, 0, 0, 120), Hex.transform(aligner, 0, 0, 240)]
+	return aligner
