@@ -107,6 +107,8 @@ Hex.transformInsert(cut10mm, "late", Hex.flipY(Teleport.teleLargeCorner), 125, 2
 
 Hex.transformInsert(cut10mm, "late", Teleport.teleTop, 122, 350, 0)
 
+Hex.transformInsert(cut10mm, "mid", Teleport.teleSmallCorner, 220, 265, 0)
+Hex.transformInsert(cut10mm, "mid", Teleport.teleSmallCorner, 234, 265, -60)
 
 Hex.transformInsert(cut10mm, "early", Flipper.ofCorner, 95, 47, 180)
 Hex.transformInsert(cut10mm, "early", Hex.flipY(Flipper.ofCorner), 95, 65, 180)
@@ -161,6 +163,9 @@ Hex.transformInsert(cut10mm, "mid", Ternary.flipperCircle, 204, 340)
 Hex.transformInsert(cut10mm, "late", Ternary.rightFlipperMod, 225, 252, 90)
 Hex.transformInsert(cut10mm, "mid", Ternary.flipperCircle, 225, 252, 90)
 
+Hex.transformInsert(cut10mm, "late", Ternary.rightFlipperMod, 240, 252, 180)
+Hex.transformInsert(cut10mm, "mid", Ternary.flipperCircle, 240, 252, 180)
+
 Hex.transformInsert(cut10mm, "late", Ternary.smallCorner, [215, 230], 290)
 Hex.transformInsert(cut10mm, "late", Hex.flipY(Ternary.smallCorner), [215, 230], 320)
 Hex.transformInsert(cut10mm, "late", Ternary.topLeftCorner, 218, 294)
@@ -171,6 +176,8 @@ Hex.transformInsert(cut10mm, "late", Misc.C3Part, 235, 195)
 Hex.transformInsert(cut10mm, "mid", Misc.aligners, 235, 195, z=False)
 Hex.transformInsert(cut10mm, "late", Misc.holdPin, 205, [179, 170, 161, 152])
 Hex.transformInsert(cut10mm, "late", Misc.holdPin, 197, [168, 159])
+
+Hex.transformInsert(cut10mm, "late", Flipper.smallCorner, 110, 250, 60)
 
 length10mm = Hex.getLength()
 Hex.resetLength()
@@ -232,6 +239,11 @@ insert3mmPart(Ternary.baseHoles[3], 3, layer="early", base=True)
 
 Hex.transformInsert(cut3mm, "mid", Teleport.star2[1], [248, 265], 16)
 Hex.transformInsert(cut3mm, "early", Teleport.star2[2], [248, 265], 16)
+
+Hex.transformInsert(cut3mm, "mid", Teleport.star2[1], 400, [295, 310, 325])
+Hex.transformInsert(cut3mm, "early", Teleport.star2[2], 400, [295, 310, 325])
+
+Hex.transformInsert(cut3mm, "mid", Specials.star, [415, 427], [295, 310, 325])
 
 Hex.transformInsert(cut3mm, "late", Teleport.teleWedge, 29, 423)
 Hex.transformInsert(cut3mm, "late", Hex.flipY(Teleport.teleWedge), 29, 426)
